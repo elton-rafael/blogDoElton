@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta charset = "UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> BLOG DO ELTON </title>
+		<link rel="icon" href="img/lobo.png" type="image/png">
+		<script type="text/javascript">
+
+			diaA = new Array ("Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado")
+	        mesA = new Array ("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho","Julho", "Agosto","Setembro","Outubro", "Novembro", "Dezembro"); 
+
+	        var dia, mes, ano, titulo, hora, minuto, segundo, postagem, excluir, divData, divPost, divTitulo, divHora, divExcluir;
+	        
+	        
+
+	        function postar(){
+	            titulo = document.getElementById("txtTitulo").value;
+	            momentoAtual = new Date
+	            		
+	            dia = diaA[momentoAtual.getDay()];
+	            mes = mesA[momentoAtual.getMonth()];
+	            ano = momentoAtual.getFullYear();
+
+	            hora = momentoAtual.getHours();
+				minuto = momentoAtual.getMinutes();
+				segundo = momentoAtual.getSeconds();
+
+				if (hora < 10){ hora = "0" + hora;}
+				if (minuto < 10){ minuto = "0" + minuto;}
+				if (segundo < 10){ segundo = "0" + segundo;}
+		            	postagem = document.getElementById("txtPostagem").value;
+			            divData = document.getElementById("divResultadoData");
+			            divPost = document.getElementById("divResultadoPost");
+			            divTitulo = document.getElementById("divResultadoTitulo");
+			            divHora = document.getElementById("divResultadoHora");  			
+			            divPost.innerText = postagem+"\n"
+			            divTitulo.innerText = titulo.toUpperCase()+"\n";
+			            divData.innerText = dia+", "+momentoAtual.getDate()+" de "+mes+" de "+ano+"";
+			            divHora.innerText = "Às "+hora + " horas " + minuto + " minutos " + segundo+" segundos\n";
+	        }
+
+               
+    </script>
+	</head>
+
+	<body>
+		<div>
+			<img class="displayed" src="img/lobo_mod3.png" alt="Logo do blog" width="225" height="225">
+			<img class="titulo" src="img/titulo_blog.png" alt="Título do blog" width="80%" height="50%">
+		</div>
+		<nav>
+			<ul>
+				<li><a class="barra" href="index.html">Perfil</a></li>
+				<li><a class="barra" href="postagens.html">Postagens</a></li>
+			</ul>
+		</nav>
+		<section id="section_corpo">
+			<div>
+				<header>
+					<a id="Identificação"></a>
+					<br><h2 class="forma">Postagens</h2>
+				</header>
+			</div>
+			<div>
+            	<label style="font-family:Comic Sans MS ; font-weight: bold; color: #FFD700">Título:</label>
+            	<input type="text" id="txtTitulo"/><br><br>
+                <label style="font-family:Comic Sans MS; font-weight: bold;  color: #FFD700 ">Conteúdo:</label><br>
+            	<textarea rows="10" cols="40" maxlength="500" type="text" id="txtPostagem"/></textarea><br><br>
+            	<button id="btnEnviar" value="1" onclick="postar();" >Postar</button><br><br>
+            	<button style="color: red; font-size: 150%; text-transform: uppercase;" value="1" onclick="postar();" > X </button><br><br>
+        	</div>
+        	<article>
+        		<div id="divResultadoTitulo" style="font-family:Comic Sans MS; font-weight: bold;  color: #FFD700; font-size: 170%;text-align: center; padding: 2%">
+			    </div>
+	        	
+	        	<table style="width:100%;" bordeR=2 >
+				  <tr>
+				  	<th>
+			       	 	<div id="divResultadoPost" style="color: white">
+			       	 	</div><br>
+			          	<div id="divResultadoData">
+			       	 	</div>
+			        	<div id="divResultadoHora"><br><br>
+				  		</div>
+				  		<div id="divResultadoPost">
+			        	</div><br>
+				  	</th>
+				  </tr>
+				</table>
+		    </article>
+		</section>
+
+		<footer>
+			<small>®Copyright 2020-2020 - Elton Rafael</small>
+		</footer>
+	</body>
+</html>
